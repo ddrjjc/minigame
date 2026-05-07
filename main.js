@@ -2,8 +2,8 @@ const mazeElement = document.getElementById('maze');
 const playerElement = document.getElementById('player');
 const goalElement = document.getElementById('goal');
 
-const SIZE = 15; // 15x15 grid
-const CELL_SIZE = 25; // pixels
+const SIZE = 25; // Level 5 difficulty: 25x25 grid
+const CELL_SIZE = 15; // Smaller cells for larger grid
 
 let maze = [];
 let playerPos = { x: 0, y: 0 };
@@ -48,6 +48,11 @@ function drawMaze() {
     goalElement.style.height = `${CELL_SIZE}px`;
     goalElement.style.left = `${goalPos.x * CELL_SIZE}px`;
     goalElement.style.top = `${goalPos.y * CELL_SIZE}px`;
+    goalElement.innerText = '🏁';
+    goalElement.style.display = 'flex';
+    goalElement.style.alignItems = 'center';
+    goalElement.style.justifyContent = 'center';
+    goalElement.style.fontSize = `${CELL_SIZE * 0.8}px`;
 }
 
 function resetPlayer() {
@@ -60,10 +65,15 @@ function updatePlayerPosition() {
     playerElement.style.height = `${CELL_SIZE}px`;
     playerElement.style.left = `${playerPos.x * CELL_SIZE}px`;
     playerElement.style.top = `${playerPos.y * CELL_SIZE}px`;
+    playerElement.innerText = '🚗';
+    playerElement.style.display = 'flex';
+    playerElement.style.alignItems = 'center';
+    playerElement.style.justifyContent = 'center';
+    playerElement.style.fontSize = `${CELL_SIZE * 0.8}px`;
     
     if (playerPos.x === goalPos.x && playerPos.y === goalPos.y) {
         setTimeout(() => {
-            alert('Congratulations! You reached the goal!');
+            alert('Great job! You parked the car!');
             initMaze();
         }, 100);
     }
@@ -77,6 +87,12 @@ function movePlayer(dx, dy) {
         playerPos.x = nx;
         playerPos.y = ny;
         updatePlayerPosition();
+        
+        // Rotate car based on direction
+        if (dx === 1) playerElement.style.transform = 'rotate(0deg)';
+        if (dx === -1) playerElement.style.transform = 'rotate(180deg)';
+        if (dy === 1) playerElement.style.transform = 'rotate(90deg)';
+        if (dy === -1) playerElement.style.transform = 'rotate(-90deg)';
     }
 }
 
