@@ -3,7 +3,7 @@ const playerElement = document.getElementById('player');
 const goalElement = document.getElementById('goal');
 
 const SIZE = 25; // Level 5 difficulty: 25x25 grid
-const CELL_SIZE = 15; // Smaller cells for larger grid
+const CELL_SIZE = 24; // Larger cells for better visibility (25 * 24 = 600px)
 
 let maze = [];
 let playerPos = { x: 0, y: 0 };

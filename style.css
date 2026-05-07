@@ -13,10 +13,11 @@ h1 {
 
 #maze-container {
     position: relative;
-    width: 375px;
-    height: 375px;
-    border: 2px solid #333;
+    width: 600px;
+    height: 600px;
+    border: 3px solid #333;
     background-color: #ecf0f1;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
 }
 
 #maze {
@@ -26,8 +27,8 @@ h1 {
 }
 
 .cell {
-    width: 15px;
-    height: 15px;
+    width: 24px;
+    height: 24px;
 }
 
 .wall {
@@ -36,8 +37,8 @@ h1 {
 
 #player {
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 24px;
+    height: 24px;
     background-color: transparent;
     transition: all 0.05s linear;
     z-index: 10;
@@ -46,8 +47,8 @@ h1 {
 
 #goal {
     position: absolute;
-    width: 15px;
-    height: 15px;
+    width: 24px;
+    height: 24px;
     background-color: transparent;
     z-index: 5;
     user-select: none;
