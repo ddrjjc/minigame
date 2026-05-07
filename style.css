@@ -13,17 +13,21 @@ h1 {
 
 #maze-container {
     position: relative;
-    width: 400px;
-    height: 400px;
+    width: 375px;
+    height: 375px;
     border: 2px solid #333;
+    background-color: white;
 }
 
 #maze {
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    grid-template-rows: repeat(10, 1fr);
+}
+
+.cell {
+    width: 25px;
+    height: 25px;
 }
 
 .wall {
@@ -32,18 +36,20 @@ h1 {
 
 #player {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     background-color: #3498db;
     border-radius: 50%;
-    transition: all 0.2s linear;
+    transition: all 0.1s linear;
+    z-index: 10;
 }
 
 #goal {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 25px;
+    height: 25px;
     background-color: #2ecc71;
+    z-index: 5;
 }
 
 #controls {
